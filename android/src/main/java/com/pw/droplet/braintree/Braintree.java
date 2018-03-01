@@ -163,20 +163,25 @@ public class Braintree extends ReactContextBaseJavaModule implements ActivityEve
     if (parameters.hasKey("lastName"))
       cardBuilder.lastName(parameters.getString("lastName"));
 
-    if (parameters.hasKey("company"))
-      cardBuilder.company(parameters.getString("company"));
 
     if (parameters.hasKey("countryName"))
       cardBuilder.countryName(parameters.getString("countryName"));
 
-    if (parameters.hasKey("countryCodeAlpha2"))
-      cardBuilder.countryCodeAlpha2(parameters.getString("countryCodeAlpha2"));
-
-    if (parameters.hasKey("countryCodeAlpha3"))
-      cardBuilder.countryCodeAlpha3(parameters.getString("countryCodeAlpha3"));
-
-    if (parameters.hasKey("countryCodeNumeric"))
-      cardBuilder.countryCodeNumeric(parameters.getString("countryCodeNumeric"));
+    // These are not avaialbe in braintree api 2.3.9
+    // if (parameters.hasKey("company"))
+    //   cardBuilder.company(parameters.getString("company"));
+    //
+    // if (parameters.hasKey("countryCodeAlpha2"))
+    //   cardBuilder.countryCodeAlpha2(parameters.getString("countryCodeAlpha2"));
+    //
+    // if (parameters.hasKey("countryCodeAlpha3"))
+    //   cardBuilder.countryCodeAlpha3(parameters.getString("countryCodeAlpha3"));
+    //
+    // if (parameters.hasKey("countryCodeNumeric"))
+    //   cardBuilder.countryCodeNumeric(parameters.getString("countryCodeNumeric"));
+    //
+    // if (parameters.hasKey("extendedAddress"))
+    //   cardBuilder.extendedAddress(parameters.getString("extendedAddress"));
 
     if (parameters.hasKey("locality"))
       cardBuilder.locality(parameters.getString("locality"));
@@ -190,8 +195,6 @@ public class Braintree extends ReactContextBaseJavaModule implements ActivityEve
     if (parameters.hasKey("streetAddress"))
       cardBuilder.streetAddress(parameters.getString("streetAddress"));
 
-    if (parameters.hasKey("extendedAddress"))
-      cardBuilder.extendedAddress(parameters.getString("extendedAddress"));
 
     Card.tokenize(this.mBraintreeFragment, cardBuilder);
   }
